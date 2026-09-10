@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>A seamless-texture test that can actually fail - Rasterloom</title>
+<meta name="description" content="The obvious seamless-texture test passes textures with visible seams. Measuring the join against the texture's own local contrast gives a scale-free number that does not.">
+<link rel="icon" href="data:image/png;base64,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">
+<style>
+:root{--bg:#111318;--bg2:#181b22;--ink:#e8ecf3;--dim:#8b94a5;--gold:#ffc43d;--line:#2c303a}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);
+     font:16px/1.65 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+     -webkit-font-smoothing:antialiased}
+a{color:var(--gold);text-decoration:none}
+a:hover{text-decoration:underline}
+.wrap{max-width:860px;margin:0 auto;padding:0 24px}
+header{border-bottom:1px solid var(--line);padding:28px 0}
+.brandrow{display:flex;align-items:center;gap:16px}
+.brandrow img{width:44px;height:44px;image-rendering:pixelated}
+.brandrow b{font-size:20px;letter-spacing:.14em;font-weight:600;color:var(--dim)}
+nav{margin-left:auto;display:flex;gap:22px;font-size:15px}
+nav a{color:var(--dim)}
+nav a.on{color:var(--ink)}
+h1{font-size:38px;line-height:1.15;margin:56px 0 18px;font-weight:700}
+h1 span{color:var(--gold)}
+h2{font-size:22px;margin:52px 0 14px;font-weight:600}
+h3{font-size:17px;margin:0 0 6px;font-weight:600}
+p{margin:0 0 16px;color:#c3cad6}
+.lead{font-size:19px;color:var(--dim);max-width:62ch}
+.grid{display:grid;gap:14px;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));margin:22px 0 0}
+.card{background:var(--bg2);border:1px solid var(--line);border-radius:10px;padding:16px 18px}
+.card p{margin:0;font-size:14px;color:var(--dim)}
+.n{color:var(--gold);font-weight:700}
+ul{color:#c3cad6;padding-left:20px}
+li{margin-bottom:8px}
+footer{border-top:1px solid var(--line);margin-top:64px;padding:26px 0 48px;color:var(--dim);font-size:14px}
+.note{background:var(--bg2);border-left:3px solid var(--gold);padding:14px 18px;border-radius:0 8px 8px 0;margin:24px 0}
+.note p{margin:0;font-size:15px}
+@media(max-width:620px){h1{font-size:29px}nav{gap:16px}}
+</style>
+<style>
+article h2{font-size:24px;margin:48px 0 14px}
+article h3{font-size:18px;margin:34px 0 10px}
+article p,article li{color:#c3cad6}
+article ol{padding-left:20px}
+.meta{color:var(--dim);font-size:14px;margin:0 0 8px}
+pre{background:var(--bg2);border:1px solid var(--line);border-radius:8px;
+    padding:16px 18px;overflow-x:auto;font-size:13.5px;line-height:1.6;
+    color:#cbd3e1}
+code{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace}
+p code,li code{background:var(--bg2);border:1px solid var(--line);
+    border-radius:4px;padding:1px 5px;font-size:13.5px}
+figure{margin:26px 0}
+figcaption{color:var(--dim);font-size:14px;margin-top:8px}
+.postlist{list-style:none;padding:0;margin:26px 0 0}
+.postlist li{margin:0 0 20px;padding:0 0 20px;border-bottom:1px solid var(--line)}
+.postlist a{font-size:19px;font-weight:600}
+.postlist p{margin:6px 0 0;font-size:15px;color:var(--dim)}
+</style>
+
+</head>
+<body>
+<header><div class="wrap"><div class="brandrow">
+<img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAQAAAAEACAYAAABccqhmAAAEoUlEQVR4nO3cscuucxzH8efoWQyGU5LCgk5JHZKJjAYDw0kKE4M/ymAwGIhBmaUMSkQYjiiD4dQZZJX7vv0HhtO353dd9/v1+gN+1/Xc9/28+02fiwsAAAAAAAAAAAAAYIeurXjo6euXThPnHI8jx1ychs45njb2PlOfz9DftbX3eeCVb5f8/rfkvtUvAKwjABAmABAmABAmABAmABAmABAmABAmABAmABAmABAmABAmABAmABAmABAmABAmABC2ZBHl369eHJl0Odcln80t8Jzp5zx0zMX1V7/b7bKQGwCECQCECQCECQCECQCECQCECQCECQCECQCECQCECQCECQCECQCECQCECQCECQCECQCELVky+efLF7a1CDR0zv0vf7PbZZg9+evz50a+sK0tJj1464cr//24AUCYAECYAECYAECYAECYAECYAECYAECYAECYAECYAECYAECYAECYAECYAECYAECYAEDY5YqHHg/HmXOmFl1OM+dwNa6/9v3Ics7dz57d1LLQCm4AECYAECYAECYAECYAECYAECYAECYAECYAECYAECYAECYAECYAECYAECYAECYAECYAELZmEWhoQWVsEWjHiy7cu60tU63gBgBhAgBhAgBhAgBhAgBhAgBhAgBhAgBhAgBhAgBhAgBhAgBhAgBhAgBhAgBhAgBhAgBhSxaBDkNLLFNLPqfTfhddiu58fHPkCztYlHIDgDIBgDABgDABgDABgDABgDABgDABgDABgDABgDABgDABgDABgDABgDABgDABgDABgLBrKx769xfPj0yoTC2xHDe2LLS19/E5/79H3/plyf/RBDcACBMACBMACBMACBMACBMACBMACBMACBMACBMACBMACBMACBMACBMACBMACBMACBMACLtc8dDj4ThyzthSzdaWc8beZ+SYs13yeezt/S75THEDgDABgDABgDABgDABgDABgDABgDABgDABgDABgDABgDABgDABgDABgDABgDABgDABgLA1i0BTyzlTSzVD5zz0+o9nuTDz50dPj3xAW1tMwg0A0gQAwgQAwgQAwgQAwgQAwgQAwgQAwgQAwgQAwgQAwgQAwgQAwgQAwgQAwgQAwgQAwpYs2Nz99JmRSZexRaChhZmH3/jpLBeBpvzx4VObWhaa+t4ff+f2br93NwAIEwAIEwAIEwAIEwAIEwAIEwAIEwAIEwAIEwAIEwAIEwAIEwAIEwAIEwAIEwAIEwAIW7JkcueTm5tahplaFnrkzZ93uwyzJ79/cGNbi1JD59x477cr//24AUCYAECYAECYAECYAECYAECYAECYAECYAECYAECYAECYAECYAECYAECYAECYAECYAEDY5YqHHg/HkXPGFoFmjuGKPPHuryPLObfff3JTy1QruAFAmABAmABAmABAmABAmABAmABAmABAmABAmABAmABAmABAmABAmABAmABAmABAmABA2JpFoKkln6Fz9rzowr0bW6ba8c/HDQDCBADCBADCBADCBADCBADCBADCBADCBADCBADCBADCBADCBADCBADCBADCBADCBAAAAAAAAAAAAAAAAPblPxrGEiiFJE9VAAAAAElFTkSuQmCC" alt="Rasterloom">
+<b>RASTERLOOM</b>
+<nav><a href="../">Home</a><a href="../packs.html">Packs</a><a href="../writing.html" class="on">Writing</a><a href="../where-to-get-them.html">Where to get them</a></nav>
+</div></div></header>
+<main class="wrap"><article>
+<p class="meta">Rasterloom &middot; testing</p>
+<h1>A seamless-texture test that can actually fail</h1>
+<p class="lead">Most seam tests pass on textures with visible seams, because
+they measure the wrong thing.</p>
+
+<h2>The test everyone writes first</h2>
+<p>Tile the texture two by two, then compare the pixels down the join with
+the pixels either side of it. If the difference is small, call it seamless.</p>
+<p>This passes almost anything. A texture with plenty of local contrast -
+gravel, bark, rust - has neighbouring pixels that differ a lot everywhere, so
+a seam that differs by the same amount hides inside the noise. The threshold
+that catches the seam also condemns the texture's own detail, and the
+threshold that spares the detail lets the seam through. There is no setting
+that works, which is the tell that the measurement is wrong rather than badly
+tuned.</p>
+
+<h2>Measure the seam against its own neighbourhood</h2>
+<p>What a viewer notices is not that the join differs. It is that the join
+differs <em>more than the surrounding texture differs from itself</em>. So
+that is what to compute: the mean absolute difference across the join,
+divided by the mean absolute difference across a column of the same texture a
+few pixels to the left, where there is no join at all.</p>
+<pre><code>def seam_ratio(img, axis=0):
+    a = np.roll(img, 1, axis=axis)
+    join  = np.abs(img.take(0, axis) - a.take(0, axis)).mean()
+    # The same measurement somewhere the texture is continuous.
+    inland = np.abs(np.diff(img, axis=axis)).mean()
+    return join / max(inland, 1e-6)</code></pre>
+<p>A value near 1.0 means the join is as ordinary as the rest of the image.
+Anything above about 1.4 is a seam you can see. The number is scale-free, so
+one threshold works for gravel and for a smooth gradient, which the absolute
+version never managed.</p>
+
+<h2>The bug it caught</h2>
+<p>A noise field built from a lattice was seamless in x and not in y. The
+absolute test passed it: the texture was busy enough to swallow the
+difference. The ratio test put y at 2.3 while x sat at 1.02, which is
+exactly the shape of "one axis wraps and the other does not".</p>
+<p>The cause was an off-by-one in the wrap of the gradient lattice - the last
+row of gradients was a fresh row rather than a copy of the first. Ten
+characters. Invisible in a thumbnail, obvious on a wall in a shipped game,
+and undetectable by the test that had been guarding it.</p>
+
+<h2>The rule underneath</h2>
+<p>A test that cannot fail is not a test. Before trusting one, find the bug
+it is supposed to catch, introduce that bug deliberately, and check that the
+test goes red. If it does not, the test is measuring something adjacent to
+the thing you care about, and it will keep passing right up until a customer
+finds the seam for you.</p>
+</article></main>
+<footer><div class="wrap">
+Rasterloom &middot; 2D asset packs for game developers &middot;
+<a href="mailto:threetowersgames@gmail.com">threetowersgames@gmail.com</a>
+</div></footer>
+</body>
+</html>

@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Why an auto-tiling terrain set has exactly 47 tiles - Rasterloom</title>
+<meta name="description" content="The 256 possible eight-neighbour cases in a blob auto-tiler collapse to exactly 47 distinguishable tiles. Here is the reduction, and why the lookup table matters more than the art.">
+<link rel="icon" href="data:image/png;base64,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">
+<style>
+:root{--bg:#111318;--bg2:#181b22;--ink:#e8ecf3;--dim:#8b94a5;--gold:#ffc43d;--line:#2c303a}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);
+     font:16px/1.65 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+     -webkit-font-smoothing:antialiased}
+a{color:var(--gold);text-decoration:none}
+a:hover{text-decoration:underline}
+.wrap{max-width:860px;margin:0 auto;padding:0 24px}
+header{border-bottom:1px solid var(--line);padding:28px 0}
+.brandrow{display:flex;align-items:center;gap:16px}
+.brandrow img{width:44px;height:44px;image-rendering:pixelated}
+.brandrow b{font-size:20px;letter-spacing:.14em;font-weight:600;color:var(--dim)}
+nav{margin-left:auto;display:flex;gap:22px;font-size:15px}
+nav a{color:var(--dim)}
+nav a.on{color:var(--ink)}
+h1{font-size:38px;line-height:1.15;margin:56px 0 18px;font-weight:700}
+h1 span{color:var(--gold)}
+h2{font-size:22px;margin:52px 0 14px;font-weight:600}
+h3{font-size:17px;margin:0 0 6px;font-weight:600}
+p{margin:0 0 16px;color:#c3cad6}
+.lead{font-size:19px;color:var(--dim);max-width:62ch}
+.grid{display:grid;gap:14px;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));margin:22px 0 0}
+.card{background:var(--bg2);border:1px solid var(--line);border-radius:10px;padding:16px 18px}
+.card p{margin:0;font-size:14px;color:var(--dim)}
+.n{color:var(--gold);font-weight:700}
+ul{color:#c3cad6;padding-left:20px}
+li{margin-bottom:8px}
+footer{border-top:1px solid var(--line);margin-top:64px;padding:26px 0 48px;color:var(--dim);font-size:14px}
+.note{background:var(--bg2);border-left:3px solid var(--gold);padding:14px 18px;border-radius:0 8px 8px 0;margin:24px 0}
+.note p{margin:0;font-size:15px}
+@media(max-width:620px){h1{font-size:29px}nav{gap:16px}}
+</style>
+<style>
+article h2{font-size:24px;margin:48px 0 14px}
+article h3{font-size:18px;margin:34px 0 10px}
+article p,article li{color:#c3cad6}
+article ol{padding-left:20px}
+.meta{color:var(--dim);font-size:14px;margin:0 0 8px}
+pre{background:var(--bg2);border:1px solid var(--line);border-radius:8px;
+    padding:16px 18px;overflow-x:auto;font-size:13.5px;line-height:1.6;
+    color:#cbd3e1}
+code{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace}
+p code,li code{background:var(--bg2);border:1px solid var(--line);
+    border-radius:4px;padding:1px 5px;font-size:13.5px}
+figure{margin:26px 0}
+figcaption{color:var(--dim);font-size:14px;margin-top:8px}
+.postlist{list-style:none;padding:0;margin:26px 0 0}
+.postlist li{margin:0 0 20px;padding:0 0 20px;border-bottom:1px solid var(--line)}
+.postlist a{font-size:19px;font-weight:600}
+.postlist p{margin:6px 0 0;font-size:15px;color:var(--dim)}
+</style>
+
+</head>
+<body>
+<header><div class="wrap"><div class="brandrow">
+<img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAQAAAAEACAYAAABccqhmAAAEoUlEQVR4nO3cscuucxzH8efoWQyGU5LCgk5JHZKJjAYDw0kKE4M/ymAwGIhBmaUMSkQYjiiD4dQZZJX7vv0HhtO353dd9/v1+gN+1/Xc9/28+02fiwsAAAAAAAAAAAAAYIeurXjo6euXThPnHI8jx1ychs45njb2PlOfz9DftbX3eeCVb5f8/rfkvtUvAKwjABAmABAmABAmABAmABAmABAmABAmABAmABAmABAmABAmABAmABAmABAmABAmABC2ZBHl369eHJl0Odcln80t8Jzp5zx0zMX1V7/b7bKQGwCECQCECQCECQCECQCECQCECQCECQCECQCECQCECQCECQCECQCECQCECQCECQCECQCELVky+efLF7a1CDR0zv0vf7PbZZg9+evz50a+sK0tJj1464cr//24AUCYAECYAECYAECYAECYAECYAECYAECYAECYAECYAECYAECYAECYAECYAECYAECYAEDY5YqHHg/HmXOmFl1OM+dwNa6/9v3Ics7dz57d1LLQCm4AECYAECYAECYAECYAECYAECYAECYAECYAECYAECYAECYAECYAECYAECYAECYAECYAELZmEWhoQWVsEWjHiy7cu60tU63gBgBhAgBhAgBhAgBhAgBhAgBhAgBhAgBhAgBhAgBhAgBhAgBhAgBhAgBhAgBhAgBhAgBhSxaBDkNLLFNLPqfTfhddiu58fHPkCztYlHIDgDIBgDABgDABgDABgDABgDABgDABgDABgDABgDABgDABgDABgDABgDABgDABgDABgLBrKx769xfPj0yoTC2xHDe2LLS19/E5/79H3/plyf/RBDcACBMACBMACBMACBMACBMACBMACBMACBMACBMACBMACBMACBMACBMACBMACBMACBMACLtc8dDj4ThyzthSzdaWc8beZ+SYs13yeezt/S75THEDgDABgDABgDABgDABgDABgDABgDABgDABgDABgDABgDABgDABgDABgDABgDABgDABgLA1i0BTyzlTSzVD5zz0+o9nuTDz50dPj3xAW1tMwg0A0gQAwgQAwgQAwgQAwgQAwgQAwgQAwgQAwgQAwgQAwgQAwgQAwgQAwgQAwgQAwgQAwpYs2Nz99JmRSZexRaChhZmH3/jpLBeBpvzx4VObWhaa+t4ff+f2br93NwAIEwAIEwAIEwAIEwAIEwAIEwAIEwAIEwAIEwAIEwAIEwAIEwAIEwAIEwAIEwAIEwAIW7JkcueTm5tahplaFnrkzZ93uwyzJ79/cGNbi1JD59x477cr//24AUCYAECYAECYAECYAECYAECYAECYAECYAECYAECYAECYAECYAECYAECYAECYAECYAEDY5YqHHg/HkXPGFoFmjuGKPPHuryPLObfff3JTy1QruAFAmABAmABAmABAmABAmABAmABAmABAmABAmABAmABAmABAmABAmABAmABAmABAmABA2JpFoKkln6Fz9rzowr0bW6ba8c/HDQDCBADCBADCBADCBADCBADCBADCBADCBADCBADCBADCBADCBADCBADCBADCBADCBAAAAAAAAAAAAAAAAPblPxrGEiiFJE9VAAAAAElFTkSuQmCC" alt="Rasterloom">
+<b>RASTERLOOM</b>
+<nav><a href="../">Home</a><a href="../packs.html">Packs</a><a href="../writing.html" class="on">Writing</a><a href="../where-to-get-them.html">Where to get them</a></nav>
+</div></div></header>
+<main class="wrap"><article>
+<p class="meta">Rasterloom &middot; auto-tiling</p>
+<h1>Why an auto-tiling terrain set has exactly 47 tiles</h1>
+<p class="lead">Not 16, not 256. Forty-seven, and the number falls out of the
+geometry rather than out of anyone's patience.</p>
+
+<h2>The naive count</h2>
+<p>A tile in a blob auto-tiler looks at its eight neighbours and asks, for each
+one, "same terrain or not?". Eight yes/no answers is one byte, so there are
+2<sup>8</sup> = 256 possible neighbourhoods. Draw one tile per neighbourhood
+and you are done - and also finished as an artist, because 256 hand-drawn
+variants per terrain is not a set anyone ships.</p>
+<p>The good news is that most of those 256 are the same picture.</p>
+
+<h2>The reduction</h2>
+<p>Take the top-left corner of a tile. Which neighbours can possibly change
+what it looks like? Only three: north, west, and north-west. The east and
+south neighbours are on the other side of the tile; they cannot reach it.</p>
+<p>Now the key observation. If north is empty, the corner is an outside
+corner and the north-west neighbour changes nothing - there is already a gap
+there. The same if west is empty. The diagonal only matters when
+<em>both</em> of its adjacent edges are filled, because that is the only case
+where the corner would otherwise be solid and the diagonal can punch a notch
+into it.</p>
+<p>So each corner has three distinguishable states, not eight:</p>
+<ol>
+<li>both edges empty &mdash; an outside corner,</li>
+<li>one edge filled &mdash; an edge running past,</li>
+<li>both edges filled, diagonal empty &mdash; an inside corner.</li>
+</ol>
+<p>Plus the fully filled case, which is what "both edges filled, diagonal
+filled" draws. Enumerate the four corners under that rule, throw away the
+neighbourhoods that produce an identical picture, and 256 collapses to
+<strong>47</strong>. That is the whole derivation. The number is not a
+convention; it is a count of distinguishable drawings.</p>
+
+<pre><code>ignore = []
+for mask in range(256):
+    n, e, s, w  = bit(mask, N), bit(mask, E), bit(mask, S), bit(mask, W)
+    nw, ne, se, sw = bit(mask, NW), bit(mask, NE), bit(mask, SE), bit(mask, SW)
+    # A diagonal that is not braced by both of its edges is invisible.
+    if nw and not (n and w): mask &amp;= ~NW
+    if ne and not (n and e): mask &amp;= ~NE
+    if se and not (s and e): mask &amp;= ~SE
+    if sw and not (s and w): mask &amp;= ~SW
+    ignore.append(mask)
+
+len(set(ignore))   # 47</code></pre>
+
+<h2>Why this is the part worth buying</h2>
+<p>The forty-seven drawings are the easy half. The half that eats an
+afternoon is the lookup: given the eight-neighbour bitmask a game computes at
+runtime, which of the forty-seven tiles goes in that cell? That is a
+256-entry table, and it is the same table for every terrain set on earth, and
+almost every tileset on the market makes the buyer write it.</p>
+<p>Shipping the table with the art is not generosity, it is the difference
+between an asset that drops in and an asset that costs a day.</p>
+
+<h2>Why the seams line up</h2>
+<p>There is a second reason to generate the tiles rather than draw them.
+Every quarter of a tile touches exactly one lattice point - the place where
+four map cells meet - and the drawing inside that quarter is a pure function
+of those four cells. Two neighbouring tiles therefore compute their shared
+edge from the same four values, so the edge is identical on both sides by
+construction. Nothing has to be lined up by eye, and nothing drifts when a
+terrain is re-rendered at a different size.</p>
+</article></main>
+<footer><div class="wrap">
+Rasterloom &middot; 2D asset packs for game developers &middot;
+<a href="mailto:threetowersgames@gmail.com">threetowersgames@gmail.com</a>
+</div></footer>
+</body>
+</html>
